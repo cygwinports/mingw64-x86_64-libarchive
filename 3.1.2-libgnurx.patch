@@ -1,0 +1,14 @@
+--- origsrc/libarchive-3.1.2/configure.ac	2013-02-09 11:23:03.000000000 -0600
++++ src/libarchive-3.1.2/configure.ac	2013-11-28 19:23:00.244969100 -0600
+@@ -366,6 +366,11 @@ if test "$enable_posix_regex_lib" = "aut
+       AC_CHECK_LIB(regex,regcomp)
+       if test "x$ac_cv_lib_regex_regcomp" = xyes; then
+         posix_regex_lib_found=1
++      else
++        AC_CHECK_LIB(gnurx,regcomp)
++        if test "x$ac_cv_lib_gnurx_regcomp" = xyes; then
++          posix_regex_lib_found=1
++        fi
+       fi
+     fi
+   fi
